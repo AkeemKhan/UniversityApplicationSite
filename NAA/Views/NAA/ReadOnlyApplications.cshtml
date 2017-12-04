@@ -1,0 +1,68 @@
+﻿@model IEnumerable<NAA.Data.BEANS.ApplicationBEAN>
+
+@{
+    ViewBag.Title = "ReadOnlyApplications";
+}
+
+<h2>Applications for User</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicantId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonalStatement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeacherReference)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeacherContactDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.firm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UniversityOffer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UniversityName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicantId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonalStatement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeacherReference)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeacherContactDetails)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.firm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UniversityOffer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UniversityName)
+        </td>
+    </tr>
+}
+
+</table>

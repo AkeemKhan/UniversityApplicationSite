@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "GetRolesForUserConfirmed";
+}
+
+<h2>GetRolesForUserConfirmed</h2>
+@if (ViewBag.RolesForThisUser != null)
+{
+    <div>
+        <ol>
+            @foreach (string s in ViewBag.RolesForThisUser)
+            {
+                <li>@s</li>
+            }
+        </ol>
+    </div>
+}
+
+@Html.ActionLink("Manage User Roles", "ManageUserRoles", new { Controller = "Admin" }) <br>
+@Html.ActionLink("Create Role", "CreateRole", new { Controller = "Admin" }) <br>
+@Html.ActionLink("Get Roles", "GetRoles", new { Controller = "Admin" }) <br>
+@Html.ActionLink("Get Roles for User", "GetRolesForUser", new { Controller = "Admin" }) <br>
+@Html.ActionLink("Get User", "GetUser", new { Controller = "Admin" }) <br>

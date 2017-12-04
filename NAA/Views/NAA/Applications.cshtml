@@ -1,0 +1,56 @@
+﻿@model IEnumerable<NAA.Data.BEANS.ApplicationBEAN>
+
+@{
+    ViewBag.Title = "Applications";
+}
+
+<h2>Applications that you have applied for</h2>
+@Html.ActionLink("Back to Home Page", "UserHome", new { Controller = "Home" })
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UniversityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UniversityOffer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.firm)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.CourseName, "Application", new { applicationId = item.Id, Controller = "NAA" })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UniversityName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UniversityOffer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.firm)
+        </td>
+        @if(item.UniversityOffer == "C" || item.UniversityOffer == "U")
+        {
+            <td>
+                @Html.ActionLink("Set Application Firm","SetApplicationFirm",new { applicationId = item.Id, Controller = "NAAAdmin" })
+            </td>
+        }
+        
+    </tr>
+}
+</table>
+
+<p>U = Unconditional Offer</p>
+<p>C = Conditional Offer</p>
+<p>R = Rejecting Offer</p>
+<p>p = Pending</p>
+
+   

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<NAA.Data.University>
+
+@{
+    ViewBag.Title = "DisplayUniversities";
+}
+
+<h2>DisplayUniversities</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UniversityName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.UniversityName, "ApplyForCourse", new { universityId = item.UniversityId, course = "" , Controller = "NAAAdmin" }) |
+            @Html.ActionLink("Display list of Courses", "DisplayUniversityCourses", new { id = item.UniversityId, Controller = "NAAWebService" })
+        </td>
+    </tr>
+}
+
+</table>
